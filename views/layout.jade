@@ -6,20 +6,21 @@ html
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
 
   body
+    .container
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand Notification
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                a(href="..") Create
+              li
+                a(href="..") Show
+              li
+                a(href="..") Change
     block content
-      .container
-        nav.navbar.navbar-default
-          .container-fluid
-            .navbar-header
-              a.navbar-brand Test
-            .collapse.navbar-collapse
-              ul.nav.navbar-nav
-                li
-                  a(href="..") Mi Perfil
-                li
-                  a(href="..") Revista Electronica
-                li
-                  a(href="..") Libros
+
 
 
 
