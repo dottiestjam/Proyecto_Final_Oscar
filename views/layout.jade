@@ -4,6 +4,7 @@ html
   head
 
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+    block scripts
 
   body
     .container
@@ -14,11 +15,11 @@ html
           .collapse.navbar-collapse
             ul.nav.navbar-nav
               li
-                a(href="..") Create
+                a(href="/notification/create") Create
               li
-                a(href="..") Show
+                a(href="/notification/show/Activas") Show
               li
-                a(href="..") Change
+                a(href="/notification/home") Change
     block content
 
 

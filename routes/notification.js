@@ -28,11 +28,50 @@ router.post('/create', function(req, res, next) {
     res.render('create', { title: 'create' });
 });
 
-router.get('/show', function(req, res, next) {
-    res.render('show', { title: 'show' });
+router.get('/display/:op', function(req, res, next) {
+    var op = req.params.op;
+
+    res.send(op);
+});
+
+router.get('/show/:notification', function(req, res, next) {
+    var status = req.params.notification;
+    console.log(status);
+    res.render('show', { title: 'show' , status: status});
 });
 
 
+router.get('/getNoti/:op', function(req, res, next) {
+    var noti = req.params.op;
+    notificacion.getNoti( noti ,function(err, result)
+    {
+        console.log(result)
+        result = JSON.parse(result);
+        //res.send(result);
+        res.render('getNoti', { title: 'Notification Details', info:result});
 
+    });
+
+});
+
+router.get('/shownoti/:noti', function(req, res, next) {
+    //res.send(req.params.task );
+    var status = req.params.noti;
+    notificacion.showNoti( status ,function(err, result)
+    {
+        res.send(result);
+    });
+});
+
+router.get('/change/:status1/:status2/:key', function(req, res, next) {
+    //res.send(req.params.task );
+    var status1 = req.params.status1;
+    var status2 = req.params.status2;
+    var key = req.params.key;
+
+    //res.send(status1+ status2 +key)
+    notificacion.changeNotiStatus(status1,status2,key)
+    res.render('show', { title: 'Show' , status: status1});
+});
 
 module.exports = router;
